@@ -65,7 +65,6 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ## Business Case
 
-Here’s the updated response for question ten, tailored to your project:
 
 1. **What is the business objective requirement for the machine learning solution?**  
    - Build an image montage so the business manager can visually differentiate between sick and healthy leaves.  
