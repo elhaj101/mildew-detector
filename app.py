@@ -88,34 +88,42 @@ elif page == 'Data Exploration':
     st.header('Data Exploration')
     st.subheader('Interactive Image Montage')
     # Show random images from each class
-    data_dir = os.path.join('data', 'cherry-leaves')
+    # Try data/cherry-leaves first, then sample_data/cherry-leaves
+    data_dir = None
+    for candidate in ['data/cherry-leaves', 'sample_data/cherry-leaves']:
+        if os.path.exists(candidate):
+            data_dir = candidate
+            break
     class_choice = st.selectbox('Choose class', CLASS_NAMES)
-    img_dir = os.path.join(data_dir, class_choice)
-    if os.path.exists(img_dir):
-        img_files = [f for f in os.listdir(img_dir) if f.endswith('.JPG')]
-        n_show = st.slider('Number of images', 3, 12, 9)
-        if img_files:
-            sel_imgs = np.random.choice(img_files, min(n_show, len(img_files)), replace=False)
-            cols = st.columns(3)
-            for i, img_name in enumerate(sel_imgs):
-                img = Image.open(os.path.join(img_dir, img_name))
-                with cols[i % 3]:
-                    st.image(img, caption=class_choice, use_column_width=True)
+    if data_dir:
+        img_dir = os.path.join(data_dir, class_choice)
+        if os.path.exists(img_dir):
+            img_files = [f for f in os.listdir(img_dir) if f.endswith('.JPG')]
+            n_show = st.slider('Number of images', 3, 12, 9)
+            if img_files:
+                sel_imgs = np.random.choice(img_files, min(n_show, len(img_files)), replace=False)
+                cols = st.columns(3)
+                for i, img_name in enumerate(sel_imgs):
+                    img = Image.open(os.path.join(img_dir, img_name))
+                    with cols[i % 3]:
+                        st.image(img, caption=class_choice, use_column_width=True)
+            else:
+                st.warning('No images found in this class directory.')
+            # Class distribution
+            try:
+                healthy_count = len(os.listdir(os.path.join(data_dir, 'healthy')))
+            except Exception:
+                healthy_count = 0
+            try:
+                mildew_count = len(os.listdir(os.path.join(data_dir, 'powdery_mildew')))
+            except Exception:
+                mildew_count = 0
+            st.subheader('Class Distribution')
+            st.bar_chart({'Healthy': healthy_count, 'Powdery Mildew': mildew_count})
+            st.write(f"Healthy: {healthy_count} images")
+            st.write(f"Powdery Mildew: {mildew_count} images")
         else:
             st.warning('No images found in this class directory.')
-        # Class distribution
-        try:
-            healthy_count = len(os.listdir(os.path.join(data_dir, 'healthy')))
-        except Exception:
-            healthy_count = 0
-        try:
-            mildew_count = len(os.listdir(os.path.join(data_dir, 'powdery_mildew')))
-        except Exception:
-            mildew_count = 0
-        st.subheader('Class Distribution')
-        st.bar_chart({'Healthy': healthy_count, 'Powdery Mildew': mildew_count})
-        st.write(f"Healthy: {healthy_count} images")
-        st.write(f"Powdery Mildew: {mildew_count} images")
     else:
         st.warning('Image directory not found. Example images and class distribution are unavailable on this deployment.')
 
