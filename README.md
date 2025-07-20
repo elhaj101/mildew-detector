@@ -1,3 +1,56 @@
+# Debugging Checklist
+
+Use this checklist to systematically debug issues in the Cherry Leaf Mildew Detector app. This covers common problems in Streamlit apps, deep learning models, and image data pipelines.
+
+## 1. App Launch & Environment
+- [ ] Is Python 3.7+ installed and the correct environment activated?
+- [ ] Are all required packages installed? (`pip install -r requirements.txt`)
+- [ ] Does `streamlit run app.py` start the app without errors?
+- [ ] Are there any missing or misnamed files (e.g., `app.py`, model files, data folders)?
+
+## 2. Data & File Structure
+- [ ] Are the data directories (`data/cherry-leaves/healthy`, `data/cherry-leaves/powdery_mildew`) present and populated with images?
+- [ ] Are image files in supported formats (JPG, JPEG, PNG) and not corrupted?
+- [ ] Are there enough images in each class for the app to display and process?
+
+## 3. Model Loading & Inference
+- [ ] Is the trained model file (`out/modeling/best_model.keras`) present and accessible?
+- [ ] Does the model load without errors in the app?
+- [ ] Are the input image size and preprocessing steps consistent with model training (e.g., 224x224, normalization)?
+- [ ] Are predictions returned for uploaded images?
+
+## 4. Streamlit UI & Navigation
+- [ ] Does the sidebar navigation work for all pages?
+- [ ] Are all pages (Overview, Data Exploration, Model Performance, Prediction, FAQ) rendering as expected?
+- [ ] Are images and charts displayed correctly (no broken images or missing plots)?
+
+## 5. Prediction & Results
+- [ ] Can you upload and predict on new images without errors?
+- [ ] Are the prediction results and confidence scores reasonable?
+- [ ] Is the summary of predictions accurate for multiple uploads?
+
+## 6. Visualization & Metrics
+- [ ] Are performance plots (accuracy/loss, confusion matrix, ROC, example predictions) present in `out/visualization/`?
+- [ ] Are these plots up-to-date and relevant to the current model?
+- [ ] Are metrics (accuracy, precision, recall, F1) consistent with expectations?
+
+## 7. Error Handling & Logs
+- [ ] Are user-friendly warnings shown for missing files, empty folders, or upload errors?
+- [ ] Are exceptions logged or displayed in the Streamlit app for debugging?
+- [ ] Are there any stack traces or error messages in the terminal running Streamlit?
+
+## 8. Advanced Checks
+- [ ] If using GPU, is TensorFlow/Keras configured to use it? (Check with `nvidia-smi` and TensorFlow logs)
+- [ ] Are package versions compatible (TensorFlow, Keras, Pillow, Streamlit, etc.)?
+- [ ] Is the app responsive and performant for large images or batch uploads?
+
+## 9. Deployment
+- [ ] If deploying (e.g., Heroku, Streamlit Cloud), are all environment variables and files included?
+- [ ] Is the `Procfile` (if used) correctly configured?
+- [ ] Does the app run as expected in the deployed environment?
+
+---
+If you encounter issues, work through this checklist and consult the FAQ in the app or project documentation. For persistent problems, open an issue with error logs and details.
 
 # Mildew Detector
 
@@ -184,26 +237,4 @@ Manual inspection of cherry leaves for powdery mildew is time-consuming and not 
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large, then add large files not required for the app to the .slugignore file.
 
-## Main Data Analysis and Machine Learning Libraries
 
-- Here, you should list the libraries used in the project and provide an example(s) of how you used these libraries.
-
-## Credits
-
-- In this section, you need to reference where you got your content, media and from where you got extra help. It is common practice to use code from other repositories and tutorials. However, it is necessary to be very specific about these sources to avoid plagiarism.
-- You can break the credits section up into Content and Media, depending on what you have included in your project.
-
-### Content
-
-- The text for the Home page was taken from Wikipedia Article A.
-- Instructions on how to implement form validation on the Sign-Up page were taken from [Specific YouTube Tutorial](https://www.youtube.com/).
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/).
-
-### Media
-
-- The photos used on the home and sign-up page are from This Open-Source site.
-- The images used for the gallery page were taken from this other open-source site.
-
-## Acknowledgements (optional)
-
-- Thank the people who provided support throughout this project.
