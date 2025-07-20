@@ -187,13 +187,25 @@ elif page == 'Predict on New Images':
     st.header('Predict on New Images')
     st.markdown('''Upload one or more cherry leaf images (JPG) to get a prediction.''')
     uploaded_files = st.file_uploader('Choose image(s)', type=['jpg', 'jpeg', 'png'], accept_multiple_files=True)
-    predict_clicked = st.button('Predict', disabled=not uploaded_files)
-    if uploaded_files:
-        # Load model once
-        @st.cache_resource
-        def load_best_model():
-            return load_model(MODEL_PATH)
-        model = load_best_model()
+    model_load_error = None
+    model = None
+    if os.path.exists(MODEL_PATH):
+        try:
+            @st.cache_resource
+            def load_best_model():
+                return load_model(MODEL_PATH)
+            model = load_best_model()
+        except Exception as e:
+            model_load_error = str(e)
+    else:
+        model_load_error = f"Model file not found at {MODEL_PATH}."
+
+    predict_disabled = not uploaded_files or (model is None)
+    predict_clicked = st.button('Predict', disabled=predict_disabled)
+
+    if model_load_error:
+        st.error(f"Model could not be loaded: {model_load_error}\nPrediction is unavailable on this deployment.")
+    elif uploaded_files and model is not None:
         if predict_clicked:
             with st.spinner('Predicting...'):
                 results = []
