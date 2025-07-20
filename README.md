@@ -63,6 +63,48 @@ To save time in this process, the IT team suggested an ML system that detects in
 - 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
 - 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 
+## Business Case
+
+Here’s the updated response for question ten, tailored to your project:
+
+1. **What is the business objective requirement for the machine learning solution?**  
+   - Build an image montage so the business manager can visually differentiate between sick and healthy leaves.  
+   - Build an interactive real-time dashboard that can upload images and tell whether a leaf is healthy or sick on the spot. This will be used by the gatherers.
+
+2. **Can traditional data analysis be used?**  
+   Build an interactive real-time dashboard that can upload images and determine whether a leaf is healthy or sick on the spot. This will be used by the gatherers.
+
+3. **Does the customer need a dashboard or an API endpoint?**  
+   The customer needs a dashboard only.
+
+4. **What does success look like?**  
+   - Both business objectives will be accomplished: one by a CNN model and one by a non-machine learning solution using only data analytics.  
+   - Over 70% accuracy results from the machine learning model.  
+   - A functioning and clear image montage.
+
+5. **Can you break down the project into epics and user stories?**  
+   - **As a user,** I want to see a comprehensive overview of the system’s capabilities and goals when I open the first tab, including where this technology can be applied (such as in cherry-growing regions like the United States, Turkey, and Italy), so I can understand how it addresses powdery mildew detection and supports agricultural efficiency.  
+   - **As a farm manager,** I want the image montage feature on the dashboard to include a description section at the top explaining the differences between healthy and diseased cherry leaves, so I can make informed crop management decisions.  
+   - **As a field worker,** I want to be able to quickly upload images of cherry leaves and receive real-time results indicating whether the leaves are healthy or affected by powdery mildew.  
+   - **As a quality control officer,** I want an interactive section on the dashboard that allows me to scroll through data visualizations showing changes in time and cost savings compared to manual inspections, so I can evaluate the efficiency of the detection process.  
+   - **As a data analyst,** I want to access detailed information about the model architecture and its decision-making process, along with performance metrics, so I can understand how the model reaches its conclusions and assess its effectiveness.
+
+6. **Are there ethical or privacy concerns?**  
+   No, there are no ethical or privacy concerns because the dataset does not include any sensitive data.
+
+7. **What level of prediction performance is needed?**  
+   Over 70% accuracy.
+
+8. **What are the project's inputs and intended outputs?**  
+   - **Inputs:** Images from the Kaggle dataset called "cherry leaves," along with other information about agricultural processes, best practices, and possibly maps.  
+   - **Outputs:** An image montage and a functioning machine learning model.
+
+9. **Does the data suggest a particular model?**  
+   Yes, a CNN model.
+
+10. **How will the customer benefit?**  
+   The customer will benefit by gaining an efficient and reliable tool for detecting powdery mildew in cherry leaves, leading to improved crop management and yield. The dashboard will provide real-time insights, allowing field workers to act quickly, while the image montage will enhance understanding of leaf health. Overall, this solution will reduce reliance on manual inspections, save time, and increase agricultural efficiency, ultimately supporting better decision-making and profitability.
+
 ## Hypothesis and how to validate?
 
 - List here your project hypothesis(es) and how you envision validating it (them).
