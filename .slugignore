@@ -1,0 +1,21 @@
+# Exclude large and unnecessary files from the Heroku slug
+# Keep only the minimal files needed for inference and the app
+
+data/
+jupyter_notebooks/
+out/modeling/
+*.ipynb
+*.h5
+*.ckpt
+*.pth
+*.pt
+*.log
+*.csv
+*.json
+*.zip
+*.tar.gz
+# Keep only the best_model.keras if needed for inference
+!out/modeling/best_model.keras
+# Exclude all images except those needed for the dashboard
+out/visualization/*.png
+# (Remove the above line if you want to keep dashboard plots)
