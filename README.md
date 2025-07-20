@@ -3,6 +3,18 @@
 
 This project provides a machine learning solution for detecting powdery mildew in cherry leaves using image analysis. It includes a dashboard for real-time predictions and visualizations to support agricultural efficiency.
 
+
+
+
+**Labor time**: Manual inspection might take 2-4 hours per hectare per season for leaf-specific checks, based on crop density and inspection frequency.  
+**Wage rates**: Using U.S. farm labor rates ($15-$30/hour), a 10-hectare farm could incur $150-$1,200 in labor costs per season for leaf checks.  
+**Technology savings**: Studies like the EOS one suggest that tools like drones or satellite imagery can reduce this time by 50-80%, lowering costs significantly.  
+
+**Citations**:  
+1. Cheema, M. J. M., et al., "Precision Agriculture Technologies: Present Adoption and Future Strategies," Precision Agriculture, 2023, Elsevier.  
+2. USDA Economic Research Service, "Farm Labor," 2023.  
+3. EOS Data Analytics, "Satellite Monitoring Revolutionizes 21st Century Agricultural Practices," 2024-09-26; "GIS For Agriculture: Solutions, Applications, Benefits," 2025-07-02.
+
 ## Getting Started
 
 1. Clone the repository and open it in your IDE.
