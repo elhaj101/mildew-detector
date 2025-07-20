@@ -1,30 +1,14 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-## Template Instructions
+# Mildew Detector
 
-Welcome,
+This project provides a machine learning solution for detecting powdery mildew in cherry leaves using image analysis. It includes a dashboard for real-time predictions and visualizations to support agricultural efficiency.
 
-This is the Code Institute student template for the Cherry Leaves project option in Predictive Analytics. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+## Getting Started
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
-
-## How to use this repo
-
-1. Use this template to create your GitHub project repo
-
-1. In your newly created repo click on the green Code button. 
-
-1. Then, from the Codespaces tab, click Create codespace on main.
-
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and `pip3 install -r requirements.txt`
-
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
-
-1. Click the kernel button and choose Python Environments.
-
-Note that the kernel says Python 3.12.1 as it inherits from the workspace, so it will be Python-3.12.1 as installed by Codespaces. To confirm this, you can use `! python --version` in a notebook code cell.
+1. Clone the repository and open it in your IDE.
+2. In the terminal, run `pip3 install -r requirements.txt` to install dependencies.
+3. Open the `jupyter_notebooks` directory and use the provided notebooks for data exploration and model development.
+4. To run the dashboard, follow the deployment instructions below.
 
 ## Cloud IDE Reminders
 
@@ -116,20 +100,58 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ## Hypothesis and how to validate?
 
-- List here your project hypothesis(es) and how you envision validating it (them).
+**Hypothesis:**
+1. A convolutional neural network (CNN) can accurately distinguish between healthy cherry leaves and those affected by powdery mildew with at least 70% accuracy.
+2. An interactive dashboard will improve the efficiency of field workers and quality control officers in identifying diseased leaves compared to manual inspection.
+
+**Validation:**
+- Train and test the CNN model on the provided Kaggle dataset, using accuracy, precision, recall, and F1-score as metrics. Validate with a holdout test set.
+- Deploy the dashboard and collect user feedback or simulate user tasks to compare time and accuracy against manual inspection benchmarks.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
-- List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+**Business Requirement 1:** Visually differentiate healthy and diseased leaves.
+- **Data Visualization:** Create an image montage showing examples of both healthy and diseased leaves, with descriptive text.
+
+**Business Requirement 2:** Predict if a cherry leaf is healthy or has powdery mildew.
+- **ML Task:** Train a CNN model to classify images as healthy or diseased. Integrate this model into the dashboard for real-time predictions.
+
+**Business Requirement 3:** Provide interactive dashboard features for different user roles.
+- **Data Visualization:** Add widgets for image upload, real-time prediction, and interactive plots showing time/cost savings and model performance.
 
 ## ML Business Case
 
-- In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+Manual inspection of cherry leaves for powdery mildew is time-consuming and not scalable. By automating detection with a CNN-based model and providing a user-friendly dashboard, the business can:
+- Reduce inspection time from 30 minutes per tree to near-instantaneous results.
+- Improve accuracy and consistency in disease detection.
+- Enable rapid intervention, reducing crop loss and improving yield.
+- Replicate the solution for other crops and diseases in the future.
 
 ## Dashboard Design
 
-- List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-- Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
+**Planned Dashboard Pages and Features:**
+
+1. **Home/Overview Page:**
+   - Project introduction and business context
+   - Overview of powdery mildew and its impact
+   - Application regions and user stories
+
+2. **Image Montage Page:**
+   - Side-by-side display of healthy and diseased leaf images
+   - Descriptive text explaining visual differences
+
+3. **Prediction Page:**
+   - Image upload widget for users
+   - Real-time prediction output (healthy/diseased)
+   - Model confidence score
+
+4. **Data Visualization Page:**
+   - Plots showing time/cost savings vs. manual inspection
+   - Model performance metrics (accuracy, confusion matrix, etc.)
+
+5. **Model Details Page:**
+   - Explanation of model architecture and decision process
+   - Downloadable reports or additional resources
 
 ## Unfixed Bugs
 
@@ -139,7 +161,7 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ### Heroku
 
-- The App live link is: `https://YOUR_APP_NAME.herokuapp.com/`
+- The App live link is: `https://mildew-detector.herokuapp.com/`
 - Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 - The project was deployed to Heroku using the following steps.
 
