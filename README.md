@@ -43,6 +43,17 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 - The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
 - The dataset contains +4 thousand images taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew, a fungal disease that affects many plant species. The cherry plantation crop is one of the finest products in their portfolio, and the company is concerned about supplying the market with a compromised quality product.
 
+## User Stories
+- As a user, I want to see a comprehensive overview of the system’s capabilities and goals when I open the first tab, including where this technology can be applied (such as in cherry-growing regions like the United States, Turkey, and Italy), so I can understand how it addresses powdery mildew detection and supports agricultural efficiency.
+
+- As a farm manager, I want the image montage feature on the dashboard to include a description section at the top explaining the differences between healthy and diseased cherry leaves, so I can make informed crop management decisions.
+
+- As a field worker, I want to be able to quickly upload images of cherry leaves and receive real-time results indicating whether the leaves are healthy or affected by powdery mildew.
+
+- As a quality control officer, I want an interactive section on the dashboard that allows me to scroll through data visualizations showing changes in time and cost savings compared to manual inspections, so I can evaluate the efficiency of the detection process.
+
+- As a data analyst, I want to access detailed information about the model architecture and its decision-making process, along with performance metrics, so I can understand how the model reaches its conclusions and assess its effectiveness.
+
 ## Business Requirements
 
 The cherry plantation crop from Farmy & Foods is facing a challenge where their cherry plantations have been presenting powdery mildew. Currently, the process is manual verification if a given cherry tree contains powdery mildew. An employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. If there is powdery mildew, the employee applies a specific compound to kill the fungus. The time spent applying this compound is 1 minute. The company has thousands of cherry trees located on multiple farms across the country. As a result, this manual process is not scalable due to the time spent in the manual process inspection.
