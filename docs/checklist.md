@@ -7,18 +7,18 @@ Use this checklist to track progress in converting Assessment "No's" to "Yes's".
 - [ ] Update User Stories in `README.md` to follow standard format ("As a... I want... so that...").
 
 ## LO1 & LO4: Hypothesis & Validation (Merit)
-- [ ] Define project hypothesis in `README.md`: "Powdery mildew leaves have distinct white patches...".
-- [ ] Validate in `Visualization.ipynb`:
-    - [ ] Average Image (Healthy vs Mildew).
-    - [ ] Difference between Averages.
-    - [ ] Image Variability.
+- [x] Define project hypothesis in `README.md`: "Powdery mildew leaves have distinct white patches...".
+- [x] Validate in `Visualization.ipynb`:
+    - [x] Average Image (Healthy vs Mildew).
+    - [x] Difference between Averages.
+    - [x] Image Variability.
 - [ ] Validate via Model Performance (Accuracy > 97%).
 - [ ] Document conclusions in `README.md`.
 
 ## LO3 & LO6: Data Analysis & Visualization
-- [ ] Update `Visualization.ipynb`:
-    - [ ] Check for data imbalance.
-    - [ ] Create Image Montage function.
+- [x] Update `Visualization.ipynb`:
+    - [x] Check for data imbalance.
+    - [x] Create Image Montage function.
 - [ ] Implement Dashboard Pages:
     - [ ] **Page 1: Summary**: Project terms, dataset details, requirements.
     - [ ] **Page 2: Visualizer**: Checkboxes for Difference/Variability, Montage.
