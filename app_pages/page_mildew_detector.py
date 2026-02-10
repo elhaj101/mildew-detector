@@ -19,6 +19,12 @@ def page_mildew_detector_body():
 
     st.write("---")
 
+    st.write(
+        f"The detector can reliably give you the correct answer only when the leaf is "
+        f"infected with Mildew disease that causes white spots or marks. "
+        f"This detector is not for damaged, burnt, or infested leaves."
+    )
+
     images_buffer = st.file_uploader('Upload leaf images. You may select more than one.', type=['png', 'jpg', 'jpeg'], accept_multiple_files=True)
    
     if images_buffer is not None:
