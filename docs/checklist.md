@@ -12,7 +12,7 @@ Use this checklist to track progress in converting Assessment "No's" to "Yes's".
     - [x] Average Image (Healthy vs Mildew).
     - [x] Difference between Averages.
     - [x] Image Variability.
-- [ ] Validate via Model Performance (Accuracy > 97%).
+- [x] Validate via Model Performance (Accuracy > 97%).
 - [ ] Document conclusions in `README.md`.
 
 ## LO3 & LO6: Data Analysis & Visualization
@@ -27,13 +27,13 @@ Use this checklist to track progress in converting Assessment "No's" to "Yes's".
     - [ ] **Page 5: ML Performance**: Loss/Accuracy plots, confusion matrix.
 
 ## LO3, LO4, LO5: ML Business Case & Evaluation
-- [ ] Update `ModelingandEvaluation.ipynb`:
-    - [ ] Data Splitting.
-    - [ ] Data Augmentation (rotation, zoom, etc.).
-    - [ ] Model Architecture (CNN).
-    - [ ] Hyperparameter Tuning.
-    - [ ] Evaluation on Test Set.
-- [ ] Document ML Business Case in `README.md` (Aim, Outcome, Metrics).
+- [x] Update `ModelingandEvaluation.ipynb`:
+    - [x] Data Splitting.
+    - [x] Data Augmentation (rotation, zoom, etc.).
+    - [x] Model Architecture (CNN).
+    - [x] Hyperparameter Tuning.
+    - [x] Evaluation on Test Set.
+- [x] Document ML Business Case in `README.md` (Aim, Outcome, Metrics).
 
 ## LO5.6: Code Structure
 - [ ] Refactor `app.py` to use `app_pages/` directory for modularity.
