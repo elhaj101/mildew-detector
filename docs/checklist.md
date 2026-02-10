@@ -19,12 +19,12 @@ Use this checklist to track progress in converting Assessment "No's" to "Yes's".
 - [x] Update `Visualization.ipynb`:
     - [x] Check for data imbalance.
     - [x] Create Image Montage function.
-- [ ] Implement Dashboard Pages:
-    - [ ] **Page 1: Summary**: Project terms, dataset details, requirements.
-    - [ ] **Page 2: Visualizer**: Checkboxes for Difference/Variability, Montage.
-    - [ ] **Page 3: Detector**: File uploader, prediction output, results table.
-    - [ ] **Page 4: Hypothesis**: Text explanation.
-    - [ ] **Page 5: ML Performance**: Loss/Accuracy plots, confusion matrix.
+- [x] Implement Dashboard Pages:
+    - [x] **Page 1: Summary**: Project terms, dataset details, requirements.
+    - [x] **Page 2: Visualizer**: Checkboxes for Difference/Variability, Montage.
+    - [x] **Page 3: Detector**: File uploader, prediction output, results table.
+    - [x] **Page 4: Hypothesis**: Text explanation.
+    - [x] **Page 5: ML Performance**: Loss/Accuracy plots, confusion matrix.
 
 ## LO3, LO4, LO5: ML Business Case & Evaluation
 - [x] Update `ModelingandEvaluation.ipynb`:
@@ -36,9 +36,10 @@ Use this checklist to track progress in converting Assessment "No's" to "Yes's".
 - [x] Document ML Business Case in `README.md` (Aim, Outcome, Metrics).
 
 ## LO5.6: Code Structure
-- [ ] Refactor `app.py` to use `app_pages/` directory for modularity.
+- [x] Refactor `app.py` to use `app_pages/` directory for modularity.
 
 ## General
-- [ ] Ensure all Dashboard plots have text interpretation.
-- [ ] Ensure Notebooks have Objectives/Inputs/Outputs descriptions.
-- [ ] Verify `requirements.txt` and `Procfile`.
+- [x] Ensure all Dashboard plots have text interpretation.
+- [x] Ensure Notebooks have Objectives/Inputs/Outputs descriptions.
+- [x] Verify `requirements.txt` and `Procfile`.
+
