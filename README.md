@@ -93,15 +93,14 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 - The dataset contains +4 thousand images taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew, a fungal disease that affects many plant species. The cherry plantation crop is one of the finest products in their portfolio, and the company is concerned about supplying the market with a compromised quality product.
 
 ## User Stories
-- As a user, I want to see a comprehensive overview of the system’s capabilities and goals when I open the first tab, including where this technology can be applied (such as in cherry-growing regions like the United States, Turkey, and Italy), so I can understand how it addresses powdery mildew detection and supports agricultural efficiency.
 
-- As a farm manager, I want the image montage feature on the dashboard to include a description section at the top explaining the differences between healthy and diseased cherry leaves, so I can make informed crop management decisions.
-
-- As a field worker, I want to be able to quickly upload images of cherry leaves and receive real-time results indicating whether the leaves are healthy or affected by powdery mildew.
-
-- As a quality control officer, I want an interactive section on the dashboard that allows me to scroll through data visualizations showing changes in time and cost savings compared to manual inspections, so I can evaluate the efficiency of the detection process.
-
-- As a data analyst, I want to access detailed information about the model architecture and its decision-making process, along with performance metrics, so I can understand how the model reaches its conclusions and assess its effectiveness.
+- **As a User (General),** I want to navigate easily through the dashboard so that I can access different functionalities without confusion.
+- **As a Farm Manager,** I want to see a visual differentiation between healthy and mildew-infected leaves (average images, difference plots) so that I can understand the disease patterns better.
+- **As a Farm Manager,** I want to view an image montage of healthy and infected leaves so that I can train my eye to identify the disease manually if needed.
+- **As a Field Worker,** I want to upload leaf images to the dashboard and get an instant prediction so that I can take immediate action on infected trees.
+- **As a Field Worker,** I want to download a report of the predictions (if possible) so that I can track the disease spread (Future Feature).
+- **As a Data Analyst,** I want to see the model performance metrics (accuracy, loss, confusion matrix) so that I can validate the reliability of the predictions.
+- **As a Data Analyst,** I want to see the project hypothesis and how it was validated so that I can ensure the project is scientifically sound.
 
 ## Business Requirements
 
@@ -163,34 +162,57 @@ To save time in this process, the IT team suggested an ML system that detects in
 11. **How will the customer benefit?**  
    The customer will benefit by gaining an efficient and reliable tool for detecting powdery mildew in cherry leaves, leading to improved crop management and yield. The dashboard will provide real-time insights, allowing field workers to act quickly, while the image montage will enhance understanding of leaf health. Overall, this solution will reduce reliance on manual inspections, save time, and increase agricultural efficiency, ultimately supporting better decision-making and profitability.
 
-## Hypothesis and how to validate?
+## Project Hypothesis and Validation
 
-**Hypothesis:**
-1. A convolutional neural network (CNN) can accurately distinguish between healthy cherry leaves and those affected by powdery mildew with at least 70% accuracy.
-2. An interactive dashboard will improve the efficiency of field workers and quality control officers in identifying diseased leaves compared to manual inspection.
+**Hypothesis**: Cherry leaves infected with powdery mildew have distinct whitish, powdery fungal patches on their surface that visually differentiate them from healthy leaves.
+- **Validation**:
+    - **Average Image Study**: We will calculate the average image for both "Healthy" and "Powdery Mildew" classes. We expect the "Powdery Mildew" average image to show lighter, whitish coloring compared to the healthy one.
+    - **Difference between Averages**: We will compute the difference between the two average images. This should highlight the regions where the disease is most prominent (likely distinct white patches).
+    - **Image Variability Study**: We will analyze the variability (standard deviation) of images. We expect infected leaves to show higher variability in texture and color due to the irregular fungal growth.
+    - **Model Learning**: If a CNN can be trained to distinguish between the two classes with high accuracy (>97%), it validates that the visual features (white patches) are distinct enough for a machine learning model to learn.
 
-**Validation:**
-- Train and test the CNN model on the provided Kaggle dataset, using accuracy, precision, recall, and F1-score as metrics. Validate with a holdout test set.
-- Deploy the dashboard and collect user feedback or simulate user tasks to compare time and accuracy against manual inspection benchmarks.
+**Hypothesis**: A deep learning model can effectively replace manual inspection with high accuracy.
+- **Validation**:
+    - **Model Performance**: We will evaluate the model on an unseen test set. An accuracy of >97% with balanced precision and recall will validate this hypothesis.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
 **Business Requirement 1:** Visually differentiate healthy and diseased leaves.
-- **Data Visualization:** Create an image montage showing examples of both healthy and diseased leaves, with descriptive text.
+- **Data Visualization Task:** We will create an image montage to visually demonstrate the differences between healthy and powdery mildew-infected leaves.
+- **Data Visualization Task:** We will calculate and plot the average image and the variability image for each class (Healthy vs Powdery Mildew) to identify distinct patterns.
+- **Data Visualization Task:** We will plot the difference between the average healthy leaf and the average infected leaf to highlight the specific regions where the disease manifests (white powdery patches).
 
 **Business Requirement 2:** Predict if a cherry leaf is healthy or has powdery mildew.
-- **ML Task:** Train a CNN model to classify images as healthy or diseased. Integrate this model into the dashboard for real-time predictions.
+- **ML Task:** We will train a Convolutional Neural Network (CNN) for binary classification. The model will take a leaf image as input and output the probability of it being healthy or infected.
+- **ML Task:** We will evaluate the model's performance using accuracy, precision, recall, and F1-score to ensure it meets the >97% accuracy target on the test set.
+- **ML Task:** We will integrate this model into the Streamlit dashboard to allow for real-time predictions on uploaded images.
 
 **Business Requirement 3:** Provide interactive dashboard features for different user roles.
-- **Data Visualization:** Add widgets for image upload, real-time prediction, and interactive plots showing time/cost savings and model performance.
+- **Dashboard Task:** We will design a user-friendly interface with a sidebar for navigation.
+- **Dashboard Task:** We will include a file uploader widget for the "Mildew Detector" page.
+- **Dashboard Task:** We will display prediction results with clear visual indicators (e.g., Green/Red text or icons).
+- **Dashboard Task:** We will include a "Project Hypothesis" page to explain the scientific validation of the project.
 
 ## ML Business Case
 
-Manual inspection of cherry leaves for powdery mildew is time-consuming and not scalable. By automating detection with a CNN-based model and providing a user-friendly dashboard, the business can:
-- Reduce inspection time from 30 minutes per tree to near-instantaneous results.
-- Improve accuracy and consistency in disease detection.
-- Enable rapid intervention, reducing crop loss and improving yield.
-- Replicate the solution for other crops and diseases in the future.
+**1. Business Objective**:
+The primary objective is to automate the detection of powdery mildew in cherry leaves to reduce labor costs and improve crop quality. The current manual process is slow (30 mins/tree) and prone to human error.
+
+**2. Model Details**:
+- **Task**: Binary Classification (Healthy vs. Powdery Mildew).
+- **Model Type**: Convolutional Neural Network (CNN).
+- **Input Data**: RGB images of cherry leaves (resized to 224x224px).
+- **Output**: Probability score (0-1) indicating the likelihood of powdery mildew infection.
+
+**3. Success Metrics**:
+- **Accuracy**: >97% on the test set.
+- **Recall**: High recall is critical to ensure infected leaves are not missed (False Negatives are costly).
+- **Speed**: Real-time prediction (<1 second per image).
+
+**4. Business Outcome**:
+- **Scalability**: The system can process thousands of images instantly, allowing for frequent and widespread monitoring.
+- **Cost Reduction**: Replaces the need for manual inspection, saving estimated labor costs.
+- **Quality Assurance**: Ensures only healthy crops reach the market, maintaining Farmy & Foods' reputation.
 
 ## Dashboard Design
 
