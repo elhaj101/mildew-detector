@@ -260,3 +260,21 @@ The primary objective is to automate the detection of powdery mildew in cherry l
 6. If the slug size is too large, then add large files not required for the app to the .slugignore file.
 
 
+## Main Data Analysis and Machine Learning Libraries
+
+- **Pandas**: For data manipulation and analysis.
+- **NumPy**: For numerical computations and array operations.
+- **Matplotlib** & **Seaborn**: For data visualization and plotting.
+- **Streamlit**: For building the interactive dashboard.
+- **Scikit-learn**: For machine learning tasks and evaluation metrics.
+- **TensorFlow** & **Keras**: For building and training the Convolutional Neural Network (CNN).
+- **Pillow (PIL)**: For image processing.
+
+## Credits
+
+### Content
+- The text for the Home page and project introduction details were adapted from the business requirements provided by Code Institute.
+- Instructions on how to implement the multi-page Streamlit dashboard were adapted from the Code Institute walkthrough project "Malaria Detector".
+
+### Media
+- The dataset was sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves).
