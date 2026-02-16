@@ -37,7 +37,11 @@ def page_visualizer_body():
 
     if st.checkbox("Image Montage"): 
         st.write("* Click the 'Create Montage' button to view a random set of images.")
-        my_data_dir = 'data/cherry-leaves'
+        # Use a small subset for Heroku to stay under slug limit
+        my_data_dir = 'data/montage'
+        # Fallback for local development if montage dir isn't created yet
+        if not os.path.exists(my_data_dir):
+            my_data_dir = 'data/cherry-leaves'
         
         if os.path.exists(my_data_dir):
             labels = [f for f in os.listdir(my_data_dir) if os.path.isdir(os.path.join(my_data_dir, f))]
