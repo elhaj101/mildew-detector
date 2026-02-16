@@ -720,3 +720,5 @@ If you encounter issues, work through this checklist and consult the Project Hyp
 
 - **Farmy & Foods** (fictional company) for the business case that inspired this practical application of machine learning in agriculture
 - **Code Institute** mentors and instructors for guidance throughout the project development process
+
+- **developed by** Elhaj Ali
