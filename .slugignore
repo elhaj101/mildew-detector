@@ -1,30 +1,29 @@
-# Exclude large and unnecessary files from the Heroku slug
-# Keep only the minimal files needed for inference and the app
+# === FINAL SURGICAL OPTIMIZATION ===
 
-data/
-jupyter_notebooks/
-out/modeling/
+# 1. Exclude ALL data and training assets
+data/*
+jupyter_notebooks/*
+scripts/*
+.devcontainer/*
+
+# 2. Exclude ALL documentation images and files
+# These are available on GitHub but don't need to be on the server
+docs/*
+
+# 3. Model management
+out/modeling/*
+!out/modeling/mildew_detector_model.keras
+
+# 4. Environment and cache junk
+venv/*
+.git/*
+__pycache__/*
+*.pyc
+.DS_Store
+
+# 5. File types
 *.ipynb
 *.h5
-*.ckpt
-*.pth
-*.pt
 *.log
-*.csv
-*.json
 *.zip
 *.tar.gz
-# Keep only the correct model for inference
-!out/modeling/mildew_detector_model.keras
-# Explicitly ignore the duplicate model to save 21MB
-out/modeling/final_model.keras
-
-# Exclude all other non-essential folders
-.devcontainer/
-docs/Assessment.md
-docs/learningobjectives.md
-docs/workflowgeneral.md
-jupyter_notebooks/
-
-# Ensure visualization plots are kept for the dashboard
-# out/visualization/*.png
