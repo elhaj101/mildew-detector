@@ -425,7 +425,7 @@ All features functioned correctly across browsers with consistent rendering and 
 
 **Fix**: 
 - **Mini-Dataset for Montage**: Created a `data/montage/` folder containing only 20 sample images (10 healthy, 10 infected). The dashboard now uses this subset for the montage feature, allowing us to ignore the full 126MB dataset on Heroku.
-- **Dependency Pruning**: Removed `scikit-learn`, `plotly`, and `joblib` from `requirements.txt`. These packages are used for training but are not required for the production dashboard, saving ~70MB of slug space.
+- **Pruned Dependencies**: Removed `scikit-learn`, `plotly`, and `joblib` from `requirements.txt`. These are heavy packages (70MB+) that are only needed for training, not for the live dashboard.
 - **Strict Git/Slug Ignore**: Updated `.gitignore` and `.slugignore` to ensure the large `data/` and `out/` folders are not tracked or uploaded, while surgically allowing only the necessary model and visualization images.
 - **Surgical Model Management**: Specifically ignored `final_model.keras` while keeping only the production `mildew_detector_model.keras`.
 - This reduced the final slug size from **511MB** to approximately **410MB**, safely under the 500MB limit.
@@ -534,7 +534,7 @@ The dashboard will open automatically in your default browser at `http://localho
 ### Machine Learning and Data Science
 - **TensorFlow 2.16.1** - Deep learning framework for building and training neural networks
 - **Keras 3.0+** - High-level neural networks API (integrated with TensorFlow)
-- **(Local Only) Scikit-learn** - Used during training for data preprocessing and evaluation metrics (excluded from production to save space)
+- **(Local Only) Scikit-learn** - These are heavy packages (70MB+) that are only needed for training, not for the live dashboard.
 
 ### Data Processing and Analysis
 - **Pandas 2.1.1** - Data manipulation and analysis library for handling structured data
@@ -543,7 +543,7 @@ The dashboard will open automatically in your default browser at `http://localho
 ### Visualization
 - **Matplotlib 3.8.0** - Comprehensive plotting library for creating static visualizations
 - **Seaborn 0.13.2** - Statistical data visualization library built on Matplotlib
-- **(Local Only) Plotly** - Used during training for interactive graphing (excluded from production to save space)
+- **(Local Only) Plotly** - These are heavy packages (70MB+) that are only needed for training, not for the live dashboard.
 
 ### Image Processing
 - **Pillow 10.0.1** - Python Imaging Library for opening, manipulating, and saving image files
