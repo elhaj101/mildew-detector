@@ -1,18 +1,16 @@
 # === FINAL SURGICAL OPTIMIZATION ===
 
-# 1. Exclude ALL data and training assets
-data/*
+# 1. Exclude training assets and splits, keep a subset if possible
+data/split/*
 jupyter_notebooks/*
 scripts/*
 .devcontainer/*
 
 # 2. Exclude ALL documentation images and files
-# These are available on GitHub but don't need to be on the server
 docs/*
 
-# 3. Model management
-out/modeling/*
-!out/modeling/mildew_detector_model.keras
+# 3. Model management - specifically ignore final_model.keras but keep mildew_detector_model.keras
+out/modeling/final_model.keras
 
 # 4. Environment and cache junk
 venv/*

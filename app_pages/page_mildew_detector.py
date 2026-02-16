@@ -43,7 +43,7 @@ def make_prediction(images_buffer):
     df_report = pd.DataFrame([])
     for image in images_buffer:
         
-        img_pil = (Image.open(image))
+        img_pil = (Image.open(image)).convert('RGB')
         st.info(f"Leaf Image: **{image.name}**")
         img_array = np.array(img_pil.resize((100, 100))) # Resize to match training
         img_array = np.expand_dims(img_array, axis=0) / 255.0 # Normalize

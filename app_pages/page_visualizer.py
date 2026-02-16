@@ -38,11 +38,15 @@ def page_visualizer_body():
     if st.checkbox("Image Montage"): 
         st.write("* Click the 'Create Montage' button to view a random set of images.")
         my_data_dir = 'data/cherry-leaves'
-        labels = os.listdir(my_data_dir)
-        label_to_display = st.selectbox(label="Select Label", options=labels, index=0)
         
-        if st.button("Create Montage"): 
-            image_montage(dir_path=my_data_dir, label_to_display=label_to_display, nrows=3, ncols=3, figsize=(10,10))
+        if os.path.exists(my_data_dir):
+            labels = [f for f in os.listdir(my_data_dir) if os.path.isdir(os.path.join(my_data_dir, f))]
+            label_to_display = st.selectbox(label="Select Label", options=labels, index=0)
+            
+            if st.button("Create Montage"): 
+                image_montage(dir_path=my_data_dir, label_to_display=label_to_display, nrows=3, ncols=3, figsize=(10,10))
+        else:
+            st.error(f"Data directory not found: {my_data_dir}. Please ensure the dataset is uploaded to the server.")
             
 
 def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):

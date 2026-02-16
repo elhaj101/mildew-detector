@@ -426,8 +426,9 @@ All features functioned correctly across browsers with consistent rendering and 
 ![Slug Size Bug](docs/images/bug.png)
 
 **Fix**: 
-- Optimized `.slugignore` to exclude unused large files, including a duplicate model (`final_model.keras`) and development-only folders (`.devcontainer`, `jupyter_notebooks`).
-- This reduced the slug size to approximately 480MB, well within the 500MB limit.
+- Optimized `.slugignore` to exclude unused large files, including a duplicate model (`final_model.keras`), development-only folders (`.devcontainer`, `jupyter_notebooks`), and non-runtime folders (`docs/`, `scripts/`).
+- By excluding the `docs/` folder (7MB of static screenshots), we ensured the slug stayed well within the 500MB limit without affecting the application's functionality.
+- This reduced the final slug size to approximately 480MB.
 
 ## Deployment
 
