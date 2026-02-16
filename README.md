@@ -500,13 +500,14 @@ The dashboard will open automatically in your default browser at `http://localho
 
 - **.slugignore**: Specifies files to exclude from the Heroku slug to reduce deployment size (e.g., large data files, Jupyter notebooks, documentation)
 
-**Python Version**: The project uses Python 3.11.4 as specified in `.python-version`. Ensure your Heroku stack supports this version (Heroku-22 stack recommended).
+**Python Version**: The project uses Python 3.12.11 as specified in `.python-version`. This version is supported on the Heroku-24 stack.
 
 **Troubleshooting**:
 
 - **Slug Size Too Large**: If deployment fails due to slug size exceeding 500MB, add large unnecessary files to `.slugignore`
 - **Module Not Found Errors**: Verify all dependencies are listed in `requirements.txt` with correct versions
 - **Port Binding Issues**: Ensure `setup.sh` correctly sets the `$PORT` environment variable for Streamlit
+- **Python Version Errors**: If deployment fails due to an outdated Python version, ensure `.python-version` is updated to a supported version (e.g., 3.12.11). This project was updated from 3.9 to 3.12.11 to support the Heroku-24 stack.
 
 ## Technologies Used
 
@@ -534,7 +535,7 @@ The dashboard will open automatically in your default browser at `http://localho
 - **Joblib 1.4.2** - Library for efficient serialization of Python objects
 
 ### Development and Deployment
-- **Python 3.11.4** - Programming language
+- **Python 3.12.11** - Programming language
 - **Heroku** - Cloud platform for application deployment
 - **Git** - Version control system
 
