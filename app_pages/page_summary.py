@@ -36,8 +36,10 @@ def page_summary_body():
 
     st.write(
         f"**Business Requirements**\n"
-        f"* 1 - Visually differentiate between healthy and powdery mildew leaves using an image montage.\n"
-        f"* 2 - Accurately predict whether a given leaf is healthy or infected using a deep learning model."
+        f"* **BR1**: The client is interested in conducting a study to visually differentiate "
+        f"between a healthy cherry leaf and one that contains powdery mildew.\n"
+        f"* **BR2**: The client is interested in predicting if a leaf is healthy or contains "
+        f"powdery mildew with high accuracy (>97%)."
     )
 
     st.success(
