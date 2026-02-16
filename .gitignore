@@ -1,3 +1,4 @@
+# Standard ignores
 core.Microsoft*
 core.mongo*
 core.python*
@@ -8,9 +9,20 @@ node_modules/
 .github/
 cloudinary_python.txt
 kaggle.json
+.DS_Store
 
+# Environment
 venv/
-data/
-out/
-!out/modeling/*.keras
+
+# Ignore all data EXCEPT the small montage folder
+data/*
+!data/montage/
+
+# Ignore all outputs EXCEPT the specific model and visualizations
+out/*
+!out/modeling/
+!out/visualization/
+out/modeling/*
+!out/modeling/mildew_detector_model.keras
+out/visualization/*
 !out/visualization/*.png

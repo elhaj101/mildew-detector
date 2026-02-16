@@ -421,14 +421,14 @@ All features functioned correctly across browsers with consistent rendering and 
 **Fix**: Updated the project to use Python 3.12.11, which is fully supported and compatible with all dependencies.
 
 ### 2. Heroku Slug Size Limit
-**Issue**: The compiled slug size exceeded Heroku's 500MB limit (reaching 500.6MB), causing the deployment to fail. This was due to large dependencies (TensorFlow) and duplicate model files being included in the deployment.
-
-![Slug Size Bug](docs/images/bug.png)
+**Issue**: The compiled slug size exceeded Heroku's 500MB limit (reaching 511MB), causing the deployment to fail. This was due to large dependencies (scikit-learn, plotly) and the full dataset being included in the deployment.
 
 **Fix**: 
-- Optimized `.slugignore` to exclude unused large files, including a duplicate model (`final_model.keras`), development-only folders (`.devcontainer`, `jupyter_notebooks`), and non-runtime folders (`docs/`, `scripts/`).
-- By excluding the `docs/` folder (7MB of static screenshots), we ensured the slug stayed well within the 500MB limit without affecting the application's functionality.
-- This reduced the final slug size to approximately 480MB.
+- **Mini-Dataset for Montage**: Created a `data/montage/` folder containing only 20 sample images (10 healthy, 10 infected). The dashboard now uses this subset for the montage feature, allowing us to ignore the full 126MB dataset on Heroku.
+- **Dependency Pruning**: Removed `scikit-learn`, `plotly`, and `joblib` from `requirements.txt`. These packages are used for training but are not required for the production dashboard, saving ~70MB of slug space.
+- **Strict Git/Slug Ignore**: Updated `.gitignore` and `.slugignore` to ensure the large `data/` and `out/` folders are not tracked or uploaded, while surgically allowing only the necessary model and visualization images.
+- **Surgical Model Management**: Specifically ignored `final_model.keras` while keeping only the production `mildew_detector_model.keras`.
+- This reduced the final slug size from **511MB** to approximately **410MB**, safely under the 500MB limit.
 
 ## Deployment
 
@@ -534,7 +534,7 @@ The dashboard will open automatically in your default browser at `http://localho
 ### Machine Learning and Data Science
 - **TensorFlow 2.16.1** - Deep learning framework for building and training neural networks
 - **Keras 3.0+** - High-level neural networks API (integrated with TensorFlow)
-- **Scikit-learn 1.3.1** - Machine learning library for data preprocessing and evaluation metrics
+- **(Local Only) Scikit-learn** - Used during training for data preprocessing and evaluation metrics (excluded from production to save space)
 
 ### Data Processing and Analysis
 - **Pandas 2.1.1** - Data manipulation and analysis library for handling structured data
@@ -543,7 +543,7 @@ The dashboard will open automatically in your default browser at `http://localho
 ### Visualization
 - **Matplotlib 3.8.0** - Comprehensive plotting library for creating static visualizations
 - **Seaborn 0.13.2** - Statistical data visualization library built on Matplotlib
-- **Plotly 5.17.0** - Interactive graphing library for dynamic visualizations
+- **(Local Only) Plotly** - Used during training for interactive graphing (excluded from production to save space)
 
 ### Image Processing
 - **Pillow 10.0.1** - Python Imaging Library for opening, manipulating, and saving image files
