@@ -413,6 +413,22 @@ All features functioned correctly across browsers with consistent rendering and 
 
 **Memory Usage** - The application maintains reasonable memory usage even when processing multiple large images simultaneously, with no memory leaks observed during extended testing sessions.
 
+## Fixed Bugs
+
+### 1. Python Version End-of-Life (EOL)
+**Issue**: The initial deployment failed because Python 3.9 was used, which has reached its end-of-life and is no longer supported on the modern Heroku-24 stack.
+
+**Fix**: Updated the project to use Python 3.12.11, which is fully supported and compatible with all dependencies.
+
+### 2. Heroku Slug Size Limit
+**Issue**: The compiled slug size exceeded Heroku's 500MB limit (reaching 500.6MB), causing the deployment to fail. This was due to large dependencies (TensorFlow) and duplicate model files being included in the deployment.
+
+![Slug Size Bug](docs/images/bug.png)
+
+**Fix**: 
+- Optimized `.slugignore` to exclude unused large files, including a duplicate model (`final_model.keras`) and development-only folders (`.devcontainer`, `jupyter_notebooks`).
+- This reduced the slug size to approximately 480MB, well within the 500MB limit.
+
 ## Deployment
 
 The Cherry Leaf Mildew Detector is deployed on Heroku, a cloud platform that enables easy hosting of web applications. The deployment process ensures that the dashboard is accessible to users worldwide without requiring local installation.

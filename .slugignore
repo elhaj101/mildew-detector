@@ -16,5 +16,15 @@ out/modeling/
 *.tar.gz
 # Keep only the correct model for inference
 !out/modeling/mildew_detector_model.keras
+# Explicitly ignore the duplicate model to save 21MB
+out/modeling/final_model.keras
+
+# Exclude all other non-essential folders
+.devcontainer/
+docs/Assessment.md
+docs/learningobjectives.md
+docs/workflowgeneral.md
+jupyter_notebooks/
+
 # Ensure visualization plots are kept for the dashboard
 # out/visualization/*.png
