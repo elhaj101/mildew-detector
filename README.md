@@ -8,6 +8,83 @@ This project demonstrates the practical application of artificial intelligence i
 
 ![Powdery Mildew on Cherry Leaves](docs/images/powdery-mildew.jpg)
 
+## Development Journey
+
+The creation of the Cherry Leaf Mildew Detector followed an iterative, data-driven methodology designed to bridge the gap between agricultural challenges and machine learning solutions.
+
+1. **Requirements Gathering**: We began by analyzing Farmy & Foods' operational bottleneck—the labor-intensive manual inspection of cherry trees—to define clear objectives for automation.
+2. **Data Collection & Preparation**: A dataset of over 4,000 images was sourced and curated, ensuring a balanced representation of healthy and infected leaves.
+3. **Data Visualization & Analysis**: Before modeling, we conducted a rigorous visual study (Average, Variability, and Difference images) to confirm that the disease manifestations were consistent and identifiable.
+4. **Model Development**: We designed and trained a Convolutional Neural Network (CNN) to automate the detection process.
+5. **Dashboard Implementation**: A Streamlit interface was developed to provide farm personnel with an intuitive tool for real-time diagnosis.
+6. **Testing & Deployment**: The system was validated against business success metrics and deployed to Heroku for global accessibility.
+
+### Why Binary Classification & CNN?
+
+From the project's inception, **Binary Classification** was chosen as the primary task because the problem is fundamentally a two-state diagnostic challenge: a leaf is either "Healthy" or "Infected with Powdery Mildew". This clear distinction made binary classification the most efficient and logical approach.
+
+A **Convolutional Neural Network (CNN)** was selected as the engine for this classification for three key reasons:
+- **Spatial Awareness**: CNNs are inherently designed to recognize spatial patterns and textures. Since powdery mildew manifests as specific white patches and irregular textures on the leaf surface, CNNs are far superior to traditional dense networks at extracting these visual features.
+- **Efficiency**: By using shared weights in convolutional layers, CNNs can process image data with significantly fewer parameters than fully connected networks, leading to faster inference—a critical requirement for real-time field use.
+- **Robustness**: CNNs handle variations in lighting, orientation, and scale more effectively through pooling and data augmentation, ensuring reliable performance in diverse agricultural environments.
+
+## Business Requirements
+
+Farmy & Foods faces a significant operational challenge with their cherry plantations. The company's current manual inspection process requires employees to spend approximately 30 minutes per tree examining leaf samples to identify powdery mildew infection. Once detected, treatment involves applying fungicidal compounds, which takes an additional minute per tree. With thousands of cherry trees spread across multiple farms, this manual process is not scalable and represents a substantial labor cost.
+
+The IT team proposed an ML-based solution to detect powdery mildew instantly from leaf images, with the potential to replicate this approach for other crops if successful.
+
+**The two primary business requirements are:**
+
+1. **Visual Differentiation** - The client is interested in conducting a study to visually differentiate a cherry leaf that is healthy from one that contains powdery mildew using an image montage.
+
+2. **Automated Prediction** - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew using a deep learning model.
+
+### User Stories
+
+The project requirements were translated into user stories following the format: "As a [role], I want [action], so that [benefit]."
+
+- **As a General User**, I want to navigate easily through the dashboard so that I can access different functionalities without confusion.
+
+- **As a Farm Manager**, I want to see a visual differentiation between healthy and mildew-infected leaves (average images, difference plots) so that I can understand the disease patterns better.
+
+- **As a Farm Manager**, I want to view an image montage of healthy and infected leaves so that I can train my eye to identify the disease manually if needed.
+
+- **As a Field Worker**, I want to upload leaf images to the dashboard and get an instant prediction so that I can take immediate action on infected trees.
+
+- **As a Data Analyst**, I want to see the model performance metrics (accuracy, loss, confusion matrix) so that I can validate the reliability of the predictions.
+
+- **As a Data Analyst**, I want to see the project hypothesis and how it was validated so that I can ensure the project is scientifically sound.
+
+### Mapping Business Requirements to Technical Tasks
+
+**Business Requirement 1: Visual Differentiation**
+
+*Data Visualization Tasks:*
+- Create an image montage feature to display random samples of healthy and infected leaves side-by-side
+- Calculate and plot the average image for each class (Healthy vs Powdery Mildew) to identify typical patterns
+- Calculate and plot the variability (standard deviation) image for each class to show texture and color variations
+- Compute and visualize the difference between average healthy and average infected leaves to highlight disease-specific regions
+
+**Business Requirement 2: Automated Prediction**
+
+*Machine Learning Tasks:*
+- Train a Convolutional Neural Network (CNN) for binary classification of cherry leaf images
+- Evaluate model performance using accuracy, precision, recall, and F1-score metrics
+- Ensure the model achieves >97% accuracy on the test set
+- Integrate the trained model into a Streamlit dashboard for real-time predictions
+- Implement image upload functionality and prediction result display
+- Generate downloadable prediction reports for record-keeping
+
+**Business Requirement 3: Interactive Dashboard**
+
+*Dashboard Development Tasks:*
+- Design a user-friendly multi-page interface with sidebar navigation
+- Implement file uploader widget for batch image processing
+- Display prediction results with clear visual indicators and confidence scores
+- Create a Project Hypothesis page to explain the scientific validation
+- Develop an ML Performance page to showcase model metrics and build user trust
+
 ## Features
 
 The Cherry Leaf Mildew Detector dashboard is built with Streamlit and organized into five comprehensive pages, each serving a specific purpose in the disease detection workflow.
@@ -116,63 +193,6 @@ The dataset was divided using standard machine learning practices to ensure prop
 - **Test Set**: 15% of images - held out completely until final evaluation to assess real-world performance
 
 This balanced approach ensures that the model learns from a diverse set of examples while maintaining rigorous evaluation standards to validate its performance on unseen data.
-
-## Business Requirements
-
-Farmy & Foods faces a significant operational challenge with their cherry plantations. The company's current manual inspection process requires employees to spend approximately 30 minutes per tree examining leaf samples to identify powdery mildew infection. Once detected, treatment involves applying fungicidal compounds, which takes an additional minute per tree. With thousands of cherry trees spread across multiple farms, this manual process is not scalable and represents a substantial labor cost.
-
-The IT team proposed an ML-based solution to detect powdery mildew instantly from leaf images, with the potential to replicate this approach for other crops if successful.
-
-**The two primary business requirements are:**
-
-1. **Visual Differentiation** - The client is interested in conducting a study to visually differentiate a cherry leaf that is healthy from one that contains powdery mildew using an image montage.
-
-2. **Automated Prediction** - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew using a deep learning model.
-
-### User Stories
-
-The project requirements were translated into user stories following the format: "As a [role], I want [action], so that [benefit]."
-
-- **As a General User**, I want to navigate easily through the dashboard so that I can access different functionalities without confusion.
-
-- **As a Farm Manager**, I want to see a visual differentiation between healthy and mildew-infected leaves (average images, difference plots) so that I can understand the disease patterns better.
-
-- **As a Farm Manager**, I want to view an image montage of healthy and infected leaves so that I can train my eye to identify the disease manually if needed.
-
-- **As a Field Worker**, I want to upload leaf images to the dashboard and get an instant prediction so that I can take immediate action on infected trees.
-
-- **As a Data Analyst**, I want to see the model performance metrics (accuracy, loss, confusion matrix) so that I can validate the reliability of the predictions.
-
-- **As a Data Analyst**, I want to see the project hypothesis and how it was validated so that I can ensure the project is scientifically sound.
-
-### Mapping Business Requirements to Technical Tasks
-
-**Business Requirement 1: Visual Differentiation**
-
-*Data Visualization Tasks:*
-- Create an image montage feature to display random samples of healthy and infected leaves side-by-side
-- Calculate and plot the average image for each class (Healthy vs Powdery Mildew) to identify typical patterns
-- Calculate and plot the variability (standard deviation) image for each class to show texture and color variations
-- Compute and visualize the difference between average healthy and average infected leaves to highlight disease-specific regions
-
-**Business Requirement 2: Automated Prediction**
-
-*Machine Learning Tasks:*
-- Train a Convolutional Neural Network (CNN) for binary classification of cherry leaf images
-- Evaluate model performance using accuracy, precision, recall, and F1-score metrics
-- Ensure the model achieves >97% accuracy on the test set
-- Integrate the trained model into a Streamlit dashboard for real-time predictions
-- Implement image upload functionality and prediction result display
-- Generate downloadable prediction reports for record-keeping
-
-**Business Requirement 3: Interactive Dashboard**
-
-*Dashboard Development Tasks:*
-- Design a user-friendly multi-page interface with sidebar navigation
-- Implement file uploader widget for batch image processing
-- Display prediction results with clear visual indicators and confidence scores
-- Create a Project Hypothesis page to explain the scientific validation
-- Develop an ML Performance page to showcase model metrics and build user trust
 
 ## Project Hypothesis and Validation
 
