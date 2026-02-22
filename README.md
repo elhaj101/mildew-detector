@@ -14,7 +14,7 @@ The creation of the Cherry Leaf Mildew Detector followed an iterative, data-driv
 
 1. **Requirements Gathering**: We began by analyzing Farmy & Foods' operational bottleneck—the labor-intensive manual inspection of cherry trees—to define clear objectives for automation.
 2. **Data Collection & Preparation**: A dataset of over 4,000 images was sourced and curated, ensuring a balanced representation of healthy and infected leaves.
-3. **Data Visualization & Analysis**: Before modeling, we conducted a rigorous visual study (Average, Variability, and Difference images) to confirm that the disease manifestations were consistent and identifiable.
+3. **Data Visualization & Analysis**: Before modeling, we conducted a rigorous visual study (Average and Variability images) to confirm that the disease manifestations were consistent and identifiable.
 4. **Model Development**: We designed and trained a Convolutional Neural Network (CNN) to automate the detection process.
 5. **Dashboard Implementation**: A Streamlit interface was developed to provide farm personnel with an intuitive tool for real-time diagnosis.
 6. **Testing & Deployment**: The system was validated against business success metrics and deployed to Heroku for global accessibility.
@@ -46,7 +46,7 @@ The project requirements were translated into user stories following the format:
 
 - **As a General User**, I want to navigate easily through the dashboard so that I can access different functionalities without confusion.
 
-- **As a Farm Manager**, I want to see a visual differentiation between healthy and mildew-infected leaves (average images, difference plots) so that I can understand the disease patterns better.
+- **As a Farm Manager**, I want to see a visual differentiation between healthy and mildew-infected leaves (average and variability images) so that I can understand the disease patterns better.
 
 - **As a Farm Manager**, I want to view an image montage of healthy and infected leaves so that I can train my eye to identify the disease manually if needed.
 
@@ -64,7 +64,6 @@ The project requirements were translated into user stories following the format:
 - Create an image montage feature to display random samples of healthy and infected leaves side-by-side
 - Calculate and plot the average image for each class (Healthy vs Powdery Mildew) to identify typical patterns
 - Calculate and plot the variability (standard deviation) image for each class to show texture and color variations
-- Compute and visualize the difference between average healthy and average infected leaves to highlight disease-specific regions
 
 **Business Requirement 2: Automated Prediction**
 
@@ -139,13 +138,12 @@ The Project Hypothesis page provides scientific context for the project, explain
 
 **Hypothesis Statement** - The page clearly states the project's core hypothesis: "Infected leaves have distinct white powdery patches that differentiate them from healthy leaves." This hypothesis is grounded in botanical knowledge about powdery mildew disease and its visual manifestation on plant tissue.
 
-**Empirical Evidence Analysis** - The page includes an interactive section where users can view the following studies:
+**Empirical Evidence Analysis** - The page includes an interactive section where users can view the following study:
 1. **Average and Variability Study** - Displays the average image and variability (standard deviation) for both healthy and powdery mildew-infected leaves. It shows that healthy leaves have a consistent green structure, while infected leaves display whitish patches and higher texture variability.
-2. **Difference Image Analysis** - Highlights the specific areas where the mildew infection distorts the leaf appearance by computing the difference between average healthy and average infected leaves.
 
 **Validation Methodology** - The hypothesis was validated through multiple approaches:
 
-1. **Visual Verification** - The contrast in the average and difference images provides direct visual evidence that infected leaves have unique patterns.
+1. **Visual Verification** - The contrast in the average and variability images provides direct visual evidence that infected leaves have unique patterns.
 2. **Model Performance** - The machine learning model successfully learned to distinguish these features with high accuracy (>97%), providing empirical validation that the visual differences are sufficient for automated classification.
 
 ![Project Hypothesis Page](docs/images/projecthypothesis.png)
@@ -199,13 +197,12 @@ The project was built on two core hypotheses that were rigorously validated thro
 
 1. **Average Image Study** - We calculated the average image for both "Healthy" and "Powdery Mildew" classes by computing the mean pixel values across all images in each category. The results showed that the "Powdery Mildew" average image displays lighter, whitish coloring compared to the darker green of healthy leaves, confirming the presence of distinctive visual patterns.
 
-2. **Difference between Averages** - We computed the pixel-wise difference between the two average images to highlight the specific regions where disease manifests. This difference image clearly revealed white patches as the primary differentiator, validating that the fungal growth creates consistent visual markers.
 
 3. **Image Variability Study** - We analyzed the variability (standard deviation) of pixel values across images in each class. Infected leaves showed higher variability in texture and color due to the irregular nature of fungal growth, while healthy leaves maintained more consistent appearance.
 
 4. **Model Learning Validation** - The fact that a CNN could be trained to distinguish between the two classes with >97% accuracy provides empirical evidence that the visual features are distinct and consistent enough for automated classification.
 
-**Conclusion**: The hypothesis was validated. Infected leaves consistently exhibit whitish powdery patches that are visually and computationally distinguishable from healthy leaves.
+**Conclusion**: The hypothesis was validated. Infected leaves consistently exhibit whitish powdery patches and higher texture variability that are visually and computationally distinguishable from healthy leaves.
 
 ### Hypothesis 2: Automated Detection Feasibility
 
@@ -298,7 +295,6 @@ The data analysis phase, documented in the `Visualization.ipynb` Jupyter noteboo
 
 **Variability Analysis** - We calculated the standard deviation of pixel values at each position to understand where images in each class vary most. High variability indicates regions with inconsistent appearance across samples.
 
-**Difference Computation** - By subtracting the average healthy image from the average infected image, we isolated the visual features that distinguish the two classes.
 
 ### Key Findings
 
@@ -310,9 +306,6 @@ The data analysis phase, documented in the `Visualization.ipynb` Jupyter noteboo
 
 ![Average and Variability - Powdery Mildew Leaves](out/visualization/avg_var_powdery_mildew.png)
 
-**Visual Differentiation** - The difference image clearly highlights the white powdery regions as the primary distinguishing feature. These patches appear consistently in infected leaves and are absent in healthy ones, validating the hypothesis that visual differentiation is possible.
-
-![Difference Between Average Images](out/visualization/difference_avg.png)
 
 These visualizations demonstrate that the dataset contains clear, learnable patterns that a machine learning model can exploit for classification.
 
@@ -590,7 +583,6 @@ The Kaggle cherry leaves dataset was downloaded and organized into appropriate d
 The `Visualization.ipynb` notebook implemented comprehensive data analysis:
 - Average image calculation for each class
 - Variability (standard deviation) analysis
-- Difference image computation
 - Image montage generation
 
 These visualizations validated the hypothesis and provided insights that informed model development.
