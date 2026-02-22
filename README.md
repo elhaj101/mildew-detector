@@ -107,17 +107,11 @@ The Project Summary page serves as the entry point to the application, providing
 
 ### Leaf Visualizer
 
-The Leaf Visualizer page addresses the first business requirement by providing interactive data visualizations that help users understand the visual differences between healthy and infected cherry leaves.
+The Leaf Visualizer page addresses the first business requirement by providing an interactive tool to explore random samples from the dataset.
 
-![Leaf Visualizer - Average and Variability](docs/images/leafvisualiser.png)
-
-**Difference between Average and Variability Image** - This feature displays the average image and variability (standard deviation) for both healthy and powdery mildew-infected leaves. Users can observe that healthy leaves maintain a clearer green structure with consistent coloring, while infected leaves show distinctive whitish patches and irregular patterns. The variability images reveal that infected leaves have higher variation in texture and color due to the irregular fungal growth patterns.
+**Image Montage** - An interactive tool that allows users to generate a random montage of either healthy or infected leaf images. Users can select the desired category from a dropdown menu and click "Create Montage" to view a 3x3 grid of sample images. Each image displays its dimensions, helping users understand the dataset composition. This feature is particularly valuable for training farm managers and field workers to recognize disease symptoms visually.
 
 ![Leaf Visualizer - Image Montage](docs/images/leafvisualiser2.png)
-
-**Image Montage** - An interactive tool that allows users to generate a random montage of either healthy or infected leaf images. Users can select the desired category from a dropdown menu and click "Create Montage" to view a 3x3 grid of sample images. Each image displays its dimensions, helping users understand the dataset composition. This feature is particularly valuable for training farm managers and field workers to recognize disease symptoms visually, complementing the automated detection system.
-
-The visualizations clearly demonstrate that the hypothesis about visual differentiation is valid - infected leaves consistently show lighter, whitish coloring and irregular patterns that distinguish them from the uniform green appearance of healthy leaves.
 
 ### Mildew Detector
 
@@ -141,21 +135,20 @@ The prediction system uses a trained Convolutional Neural Network that processes
 
 ### Project Hypothesis
 
-The Project Hypothesis page provides scientific context for the project, explaining the underlying assumptions and how they were validated through data analysis and model performance.
-
-![Project Hypothesis Page](docs/images/projecthypothesis.png)
+The Project Hypothesis page provides scientific context for the project, explaining the underlying assumptions and providing empirical evidence through visual analysis.
 
 **Hypothesis Statement** - The page clearly states the project's core hypothesis: "Infected leaves have distinct white powdery patches that differentiate them from healthy leaves." This hypothesis is grounded in botanical knowledge about powdery mildew disease and its visual manifestation on plant tissue.
 
+**Empirical Evidence Analysis** - The page includes an interactive section where users can view the following studies:
+1. **Average and Variability Study** - Displays the average image and variability (standard deviation) for both healthy and powdery mildew-infected leaves. It shows that healthy leaves have a consistent green structure, while infected leaves display whitish patches and higher texture variability.
+2. **Difference Image Analysis** - Highlights the specific areas where the mildew infection distorts the leaf appearance by computing the difference between average healthy and average infected leaves.
+
 **Validation Methodology** - The hypothesis was validated through multiple approaches:
 
-1. **Average Image Study** - By calculating the average image for both healthy and powdery mildew classes, the analysis revealed that infected leaves show lighter, whitish patterns compared to the darker green of healthy leaves.
+1. **Visual Verification** - The contrast in the average and difference images provides direct visual evidence that infected leaves have unique patterns.
+2. **Model Performance** - The machine learning model successfully learned to distinguish these features with high accuracy (>97%), providing empirical validation that the visual differences are sufficient for automated classification.
 
-2. **Difference Image Analysis** - Computing the difference between average healthy and average infected images highlighted the specific regions where disease manifests, confirming that the white powdery patches are the primary visual differentiator.
-
-3. **Model Performance** - The machine learning model successfully learned to distinguish these features with high accuracy (>97%), providing empirical validation that the visual differences are sufficient for automated classification.
-
-This scientific approach ensures that the project is built on sound principles and that the automated detection system is reliable for real-world agricultural applications.
+![Project Hypothesis Page](docs/images/projecthypothesis.png)
 
 ### ML Performance Metrics
 

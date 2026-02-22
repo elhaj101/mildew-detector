@@ -16,24 +16,6 @@ def page_visualizer_body():
     )
     
     version = 'v1'
-    if st.checkbox("Difference between Average and Variability Image"):
-      
-        avg_healthy = plt.imread(f"out/visualization/avg_var_healthy.png")
-        avg_mildew = plt.imread(f"out/visualization/avg_var_powdery_mildew.png")
-        
-        st.warning(
-            f"We notice that the average and variability images show distinct patterns.\n"
-            f"Healthy leaves tend to have a clearer green structure, while infected leaves show whitish patches."
-        )
-        
-        st.image(avg_healthy, caption='Healthy Leaf - Average and Variability')
-        st.image(avg_mildew, caption='Powdery Mildew Leaf - Average and Variability')
-        
-        st.write("---")
-
-        st.warning(f"Difference between average healthy and average infected leaf.")
-        diff_img = plt.imread(f"out/visualization/difference_avg.png")
-        st.image(diff_img, caption='Difference between Average Images')
 
     if st.checkbox("Image Montage"): 
         st.write("* Click the 'Create Montage' button to view a random set of images.")
