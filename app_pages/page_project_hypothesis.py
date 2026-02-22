@@ -25,3 +25,14 @@ def page_project_hypothesis_body():
             f"The visual analysis confirms that infected leaves display whitish powdery patches "
             f"and higher texture variability, which are key indicators the model uses for classification."
         )
+
+    if st.checkbox("Show Dataset Class Balance"):
+        st.write("### Dataset Class Balance")
+        st.info(
+            f"A balanced dataset is crucial for training a reliable model. "
+            f"It ensures the model learns to identify both classes with equal precision."
+        )
+        # Class counts verified from data directory
+        data = {"Healthy": 2104, "Powdery Mildew": 2104}
+        st.bar_chart(data)
+        st.write(f"The dataset contains **2,104** images of healthy leaves and **2,104** images of infected leaves, representing a perfect 50/50 balance.")

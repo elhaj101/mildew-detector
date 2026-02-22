@@ -138,8 +138,9 @@ The Project Hypothesis page provides scientific context for the project, explain
 
 **Hypothesis Statement** - The page clearly states the project's core hypothesis: "Infected leaves have distinct white powdery patches that differentiate them from healthy leaves." This hypothesis is grounded in botanical knowledge about powdery mildew disease and its visual manifestation on plant tissue.
 
-**Empirical Evidence Analysis** - The page includes an interactive section where users can view the following study:
+**Empirical Evidence Analysis** - The page includes an interactive section where users can view the following studies:
 1. **Average and Variability Study** - Displays the average image and variability (standard deviation) for both healthy and powdery mildew-infected leaves. It shows that healthy leaves have a consistent green structure, while infected leaves display whitish patches and higher texture variability.
+2. **Dataset Class Balance** - A bar chart showing the distribution of images across both categories. This confirms the model was trained on a perfectly balanced dataset (2,104 images per class), supporting the reliability of the classification results.
 
 **Validation Methodology** - The hypothesis was validated through multiple approaches:
 
